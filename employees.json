@@ -1,0 +1,144 @@
+[
+  {
+    "name": "AK Updated",
+    "email": "akshay@finder.com",
+    "password": "1234",
+    "industry": "Technology Media Telecom",
+    "domain": "Innovation Product Strategy",
+    "role": "Senior Manager",
+    "department": "Strategy & Consulting",
+    "location": "New Delhi, India",
+    "skills": [
+      "Strategic Planning",
+      "Market Research",
+      "Client Management"
+    ],
+    "bio": "Experienced strategy consultant with expertise in life sciences and healthcare sectors."
+  },
+  {
+    "name": "AP",
+    "email": "ap@finder.com",
+    "password": "1234",
+    "industry": "Cross-Industry",
+    "domain": "Innovation & Product Strategy",
+    "role": "Manager",
+    "department": "Innovation Lab",
+    "location": "Mumbai, India",
+    "skills": [
+      "Product Development",
+      "Innovation Management",
+      "Design Thinking"
+    ],
+    "bio": "Innovation specialist focused on cross-industry product strategy and development."
+  },
+  {
+    "name": "Ankan",
+    "email": "ankan@finder.com",
+    "password": "1234",
+    "industry": "Consumer",
+    "domain": "Pricing & Sales Strategy",
+    "role": "Senior Consultant",
+    "department": "Commercial Excellence",
+    "location": "Bangalore, India",
+    "skills": [
+      "Pricing Strategy",
+      "Sales Analytics",
+      "Revenue Optimization"
+    ],
+    "bio": "Pricing and sales strategy expert with deep consumer goods industry experience."
+  },
+  {
+    "name": "Test User",
+    "email": "test@example.com",
+    "password": "1234",
+    "industry": "Technology, Media & Telecom",
+    "domain": "Marketing Strategy",
+    "role": "Consultant",
+    "department": "Digital Marketing",
+    "location": "Chennai, India",
+    "skills": [
+      "Digital Marketing",
+      "Brand Strategy",
+      "Customer Analytics"
+    ],
+    "bio": "Marketing strategy consultant specializing in technology and media sectors."
+  },
+  {
+    "name": "Satyam Kumar",
+    "email": "satyam@finder.com",
+    "password": "1234",
+    "industry": "Technology, Media & Telecom",
+    "domain": "Pricing & Sales Strategy",
+    "role": "Senior Consultant",
+    "department": "Revenue Management",
+    "location": "Hyderabad, India",
+    "skills": [
+      "Revenue Analytics",
+      "Market Modeling",
+      "Competitive Analysis"
+    ],
+    "bio": "Senior consultant with expertise in technology sector pricing and revenue optimization."
+  },
+  {
+    "name": "Test User 2",
+    "email": "testuser@example.com",
+    "password": "1234",
+    "industry": "Financial Services & Insurance",
+    "domain": "Cross-Domain",
+    "role": "Analyst",
+    "department": "Financial Advisory",
+    "location": "Pune, India",
+    "skills": [
+      "Financial Analysis",
+      "Risk Assessment",
+      "Regulatory Compliance"
+    ],
+    "bio": "Financial services analyst with cross-domain expertise in regulatory and compliance areas."
+  },
+  {
+    "name": "Kumar",
+    "email": "kumar@finder.com",
+    "password": "1234",
+    "industry": "Energy, Resources & Industrial",
+    "domain": "Service Strategy",
+    "role": "Manager",
+    "department": "Industrial Services",
+    "location": "Kolkata, India",
+    "skills": [
+      "Operations Strategy",
+      "Supply Chain",
+      "Industrial Analytics"
+    ],
+    "bio": "Service strategy manager with deep expertise in energy and industrial sectors."
+  },
+  {
+    "name": "Test Filter User",
+    "email": "testfilter@example.com",
+    "password": "1234",
+    "industry": "Life Sciences & Health Care",
+    "domain": "Commerce Strategy",
+    "role": "Senior Manager",
+    "department": "Healthcare Strategy",
+    "location": "Gurgaon, India",
+    "skills": [
+      "Healthcare Analytics",
+      "Commercial Strategy",
+      "Market Access"
+    ],
+    "bio": "Healthcare strategy leader with extensive experience in pharmaceutical and medical device sectors."
+  },
+  {
+    "name": "Pranjay",
+    "email": "p@finder.com",
+    "password": "1234",
+    "industry": "Financial Services & Insurance",
+    "domain": "Commerce Strategy"
+  },
+  {
+    "name": "Yash",
+    "email": "ny@finder.com",
+    "password": "1234",
+    "industry": "Financial Services & Insurance",
+    "domain": "Pricing & Sales Strategy"
+  }
+]

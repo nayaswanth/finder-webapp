@@ -1,0 +1,268 @@
+[
+  {
+    "title": "Opp 1",
+    "description": "Opp 1 Desc",
+    "domain": "Customer & Commercial Strategy",
+    "type": "Proposal / POV",
+    "startDate": "2025-07-01",
+    "endDate": "2025-07-19",
+    "hoursPerWeek": "1",
+    "roles": [
+      "Senior Consultant"
+    ],
+    "skills": [
+      "Presentation"
+    ],
+    "email": "akshay@finder.com",
+    "industry": "Energy, Resources & Industrial",
+    "applied": [
+      "ankan@finder.com"
+    ],
+    "not_interested": [
+      "test@example.com"
+    ]
+  },
+  {
+    "domain": "Customer & Commercial Strategy",
+    "hoursPerWeek": "5",
+    "description": "This is a test opportunity",
+    "type": "Proposal / POV",
+    "skills": [
+      "Testing"
+    ],
+    "endDate": "2025-08-15",
+    "roles": [
+      "Consultant"
+    ],
+    "startDate": "2025-08-05",
+    "title": "Test Opportunity",
+    "email": "test@example.com",
+    "applied": [
+      "testuser@example.com",
+      "kumar@finder.com"
+    ],
+    "not_interested": [
+      "satyam@finder.com",
+      "ny@finder.com"
+    ]
+  },
+  {
+    "title": "sdbjhdsagdsd",
+    "description": "bsbajdbbdand sadv ghdshahsk",
+    "domain": "Pricing & Sales Strategy",
+    "type": "CS&D Operations",
+    "startDate": "2025-08-18",
+    "endDate": "2025-08-28",
+    "hoursPerWeek": "2",
+    "roles": [
+      "Analyst",
+      "Manager"
+    ],
+    "skills": [
+      "Presentation",
+      "Stakeholder management"
+    ],
+    "email": "satyam@finder.com",
+    "industry": "Technology, Media & Telecom",
+    "not_interested": [
+      "testuser@example.com",
+      "testfilter@example.com"
+    ],
+    "applied": [
+      "satyam@finder.com",
+      "kumar@finder.com",
+      "ny@finder.com",
+      "p@finder.com"
+    ],
+    "application_statuses": {
+      "p@finder.com": "accepted"
+    },
+    "status": "closed"
+  },
+  {
+    "domain": "Marketing Strategy",
+    "hoursPerWeek": "3",
+    "description": "This is a closed test opportunity",
+    "type": "Other",
+    "skills": [
+      "PMO"
+    ],
+    "endDate": "2025-08-10",
+    "roles": [
+      "Manager"
+    ],
+    "startDate": "2025-08-01",
+    "status": "closed",
+    "title": "Closed Test Opportunity",
+    "email": "test@example.com"
+  },
+  {
+    "title": "aaa",
+    "description": "aaaaaaaaaaaaaa",
+    "domain": "Pricing & Sales Strategy",
+    "type": "Proposal / POV",
+    "startDate": "2025-08-12",
+    "endDate": "2025-08-31",
+    "hoursPerWeek": "2",
+    "roles": [
+      "Senior Consultant"
+    ],
+    "skills": [
+      "Dashboarding"
+    ],
+    "email": "satyam@finder.com",
+    "status": "open"
+  },
+  {
+    "title": "Check mandatory fields ",
+    "description": "lets check ",
+    "domain": "",
+    "type": "Proposal / POV",
+    "startDate": "2025-08-06",
+    "endDate": "2025-08-27",
+    "hoursPerWeek": "5",
+    "roles": [],
+    "skills": [],
+    "email": "satyam@finder.com",
+    "industry": "",
+    "status": "open"
+  },
+  {
+    "title": "Opp 3",
+    "description": "Opp 3 Description",
+    "domain": "Customer & Commercial Strategy",
+    "type": "Proposal / POV",
+    "startDate": "2025-08-01",
+    "endDate": "2025-08-20",
+    "hoursPerWeek": "3",
+    "roles": [
+      "Senior Consultant"
+    ],
+    "skills": [
+      "Analysis"
+    ],
+    "email": "akshay@finder.com",
+    "industry": "Energy, Resources & Industrial",
+    "applied": [
+      "ankan@finder.com"
+    ],
+    "status": "open",
+    "application_statuses": {
+      "ankan@finder.com": "accepted"
+    }
+  },
+  {
+    "title": "Opp 4",
+    "description": "4th opportunity",
+    "domain": "",
+    "type": "Domain / Industry Operations",
+    "startDate": "2025-08-06",
+    "endDate": "2025-08-30",
+    "hoursPerWeek": "1",
+    "roles": [],
+    "skills": [],
+    "email": "akshay@finder.com",
+    "industry": "",
+    "status": "open",
+    "applied": [
+      "ankan@finder.com"
+    ],
+    "application_statuses": {
+      "ankan@finder.com": "accepted"
+    }
+  },
+  {
+    "title": "Opp 5",
+    "description": "Opportunity 5 description",
+    "domain": "Pricing & Sales Strategy",
+    "type": "Domain / Industry Operations",
+    "startDate": "2025-08-15",
+    "endDate": "2025-08-23",
+    "hoursPerWeek": "1",
+    "roles": [
+      "Senior Consultant"
+    ],
+    "skills": [
+      "Data Analysis"
+    ],
+    "email": "akshay@finder.com",
+    "industry": "",
+    "status": "open",
+    "applied": [
+      "ankan@finder.com"
+    ],
+    "application_statuses": {
+      "ankan@finder.com": "accepted"
+    }
+  },
+  {
+    "title": "Opp 6",
+    "description": "Opp 6 desc",
+    "domain": "",
+    "type": "Proposal / POV",
+    "startDate": "2025-08-05",
+    "endDate": "2025-08-16",
+    "hoursPerWeek": "2",
+    "roles": [],
+    "skills": [],
+    "email": "akshay@finder.com",
+    "industry": "",
+    "status": "closed",
+    "applied": [
+      "ankan@finder.com"
+    ],
+    "application_statuses": {
+      "ankan@finder.com": "accepted"
+    }
+  },
+  {
+    "title": "Opp 7",
+    "description": "7th opportunity",
+    "domain": "Service Strategy",
+    "type": "Proposal / POV",
+    "startDate": "2025-08-30",
+    "endDate": "2025-08-31",
+    "hoursPerWeek": "1",
+    "roles": [],
+    "skills": [],
+    "email": "ankan@finder.com",
+    "industry": "",
+    "status": "open"
+  },
+  {
+    "title": "8",
+    "description": "8th opp",
+    "domain": "Marketing Strategy",
+    "type": "Proposal / POV",
+    "startDate": "2025-08-30",
+    "endDate": "2025-09-01",
+    "hoursPerWeek": "2",
+    "roles": [],
+    "skills": [
+      "Dashboarding"
+    ],
+    "email": "ankan@finder.com",
+    "industry": "Technology, Media & Telecom",
+    "status": "open"
+  },
+  {
+    "title": "Closed soon",
+    "description": "Checking after closing the opportunity ",
+    "domain": "Marketing Strategy",
+    "type": "CS&D Operations",
+    "startDate": "2025-08-19",
+    "endDate": "2025-08-31",
+    "hoursPerWeek": "3",
+    "roles": [],
+    "skills": [],
+    "email": "p@finder.com",
+    "industry": "",
+    "status": "closed",
+    "applied": [
+      "satyam@finder.com"
+    ],
+    "application_statuses": {
+      "satyam@finder.com": "accepted"
+    }
+  }
+]

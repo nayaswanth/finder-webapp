@@ -1,0 +1,27 @@
+# SPA routing fallback for React Router
+# Static assets should not be redirected
+/assets/*  /assets/:splat  200
+/favicon.ico  /favicon.ico  200
+/*.js  /:splat  200
+/*.css  /:splat  200
+/*.png  /:splat  200
+/*.svg  /:splat  200
+/*.jpg  /:splat  200
+/*.jpeg  /:splat  200
+/*.gif  /:splat  200
+/*.ico  /:splat  200
+/*.webp  /:splat  200
+
+# API routes (if any)
+/api/*  /api/:splat  200
+
+# SPA routes - redirect all other routes to index.html
+/dashboard  /index.html  200
+/find-opportunities  /index.html  200
+/post-opportunity  /index.html  200
+/profile  /index.html  200
+/register  /index.html  200
+/opportunity/*  /index.html  200
+
+# Catch-all fallback - must be last
+/*  /index.html  200

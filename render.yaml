@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: finder-webapp-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT wsgi:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+
+  - type: web
+    name: finder-webapp-frontend
+    env: node
+    # Work around Rollup optional deps bug by clearing cache and using npm install
+    buildCommand: rm -rf node_modules package-lock.json && npm install && npm run build
+    startCommand: npm start
+    pullRequestPreviewsEnabled: false
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 20.19.0
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: finder-webapp-backend
+          property: host
+      - key: ROLLUP_SKIP_NODEJS_NATIVE
+        value: "true"

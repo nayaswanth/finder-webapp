@@ -1,0 +1,147 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom finder-blue colors defined in tailwind.config.js */
+/* Force redeploy - inline styles added for brand blue #115CBA - COMMIT TEST */
+@layer base {
+  :root {
+    --finder-blue-600: #115CBA;
+    --finder-blue-700: #0E4A9A;
+    --finder-blue-800: #0B3E7F;
+    --finder-blue-100: #E3F2FD;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+/* Global production-safe color overrides */
+
+/* Force all blue-600 variants to use brand color */
+.bg-blue-600,
+.bg-finder-blue-600,
+button.bg-blue-600,
+button.bg-finder-blue-600 {
+  background-color: #115CBA !important;
+}
+
+.bg-blue-600:hover,
+.bg-finder-blue-600:hover,
+button.bg-blue-600:hover,
+button.bg-finder-blue-600:hover {
+  background-color: #0E4A9A !important;
+}
+
+.text-blue-600,
+.text-finder-blue-600 {
+  color: #115CBA !important;
+}
+
+/* Universal override for any button with blue background */
+button[class*="bg-blue"],
+[class*="bg-blue-6"] {
+  background-color: #115CBA !important;
+}
+
+button[class*="bg-blue"]:hover,
+[class*="bg-blue-6"]:hover {
+  background-color: #0E4A9A !important;
+}
+
+@layer utilities {
+  .bg-finder-blue-600 {
+    background-color: var(--finder-blue-600) !important;
+    background-color: #115CBA !important;
+  }
+  .bg-finder-blue-700 {
+    background-color: var(--finder-blue-700) !important;
+    background-color: #0E4A9A !important;
+  }
+  .text-finder-blue-600 {
+    color: var(--finder-blue-600) !important;
+    color: #115CBA !important;
+  }
+  .text-finder-blue-700 {
+    color: var(--finder-blue-700) !important;
+    color: #0E4A9A !important;
+  }
+  .text-finder-blue-800 {
+    color: var(--finder-blue-800) !important;
+    color: #0B3E7F !important;
+  }
+  .bg-finder-blue-100 {
+    background-color: var(--finder-blue-100) !important;
+    background-color: #E3F2FD !important;
+  }
+  .ring-finder-blue-500 {
+    --tw-ring-color: var(--finder-blue-600) !important;
+    --tw-ring-color: #115CBA !important;
+  }
+  
+  /* Focus ring color fix */
+  .focus\:ring-finder-blue-500:focus {
+    --tw-ring-color: var(--finder-blue-600) !important;
+    --tw-ring-color: #115CBA !important;
+    --tw-ring-opacity: 1 !important;
+  }
+}
+
+/* Direct color overrides with higher specificity */
+.bg-finder-blue-600,
+button.bg-finder-blue-600,
+.bg-blue-600,
+button.bg-blue-600 {
+  background-color: #115CBA !important;
+}
+
+.bg-finder-blue-600:hover,
+button.bg-finder-blue-600:hover,
+.bg-blue-600:hover,
+button.bg-blue-600:hover {
+  background-color: #0E4A9A !important;
+}
+
+.text-finder-blue-600,
+.text-blue-600 {
+  color: #115CBA !important;
+}
+
+/* Force override any blue-600 classes to use our brand color */
+[class*="bg-blue-600"] {
+  background-color: #115CBA !important;
+}
+
+[class*="bg-blue-600"]:hover {
+  background-color: #0E4A9A !important;
+}
+
+/* Universal blue button override */
+button[class*="bg-blue"] {
+  background-color: #115CBA !important;
+}
+
+button[class*="bg-blue"]:hover {
+  background-color: #0E4A9A !important;
+}
+
+/* CRITICAL: Final override for production - highest specificity */
+body button.bg-finder-blue-600,
+body .bg-finder-blue-600,
+body button[class*="bg-blue"],
+body [class*="bg-blue-6"] {
+  background-color: #115CBA !important;
+  border-color: #115CBA !important;
+}
+
+body button.bg-finder-blue-600:hover,
+body .bg-finder-blue-600:hover,
+body button[class*="bg-blue"]:hover,
+body [class*="bg-blue-6"]:hover {
+  background-color: #0E4A9A !important;
+  border-color: #0E4A9A !important;
+}
