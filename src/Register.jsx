@@ -125,103 +125,106 @@ export default function Register() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-blue-50">
-      <form onSubmit={handleRegister} className="bg-white p-10 rounded-2xl shadow-md w-full max-w-md text-center">
+      <div className="bg-white p-10 rounded-2xl shadow-md w-full max-w-md text-center">
         <div className="mb-6 flex justify-center">
           <img src={finderLogo} alt="Finder Logo" className="h-12" />
         </div>
-        <h2 className="text-xl font-semibold mb-4 text-gray-700">Register</h2>
+        <h2 className="text-xl font-semibold mb-4 text-gray-700">Create Your Account</h2>
         
-        <input 
-          name="name" 
-          type="text" 
-          placeholder="Name" 
-          value={form.name} 
-          onChange={handleChange} 
-          className="w-full px-4 py-2 border border-gray-300 rounded-xl mb-3 focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
-          required 
-          disabled={loading}
-        />
+        <form onSubmit={handleRegister} className="space-y-4">
+          <input 
+            name="name" 
+            type="text" 
+            placeholder="Full Name" 
+            value={form.name} 
+            onChange={handleChange} 
+            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
+            required 
+            disabled={loading}
+          />
+          
+          <input 
+            name="email" 
+            type="email" 
+            placeholder="Enter your email" 
+            value={form.email} 
+            onChange={handleChange} 
+            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
+            required 
+            disabled={loading}
+          />
+          
+          <input 
+            name="password" 
+            type="password" 
+            placeholder="Enter your password" 
+            value={form.password} 
+            onChange={handleChange} 
+            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
+            required 
+            disabled={loading}
+          />
+          
+          <input 
+            name="confirmPassword" 
+            type="password" 
+            placeholder="Confirm your password" 
+            value={form.confirmPassword} 
+            onChange={handleChange} 
+            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
+            required 
+            disabled={loading}
+          />
+          
+          <select 
+            name="role" 
+            value={form.role} 
+            onChange={handleChange} 
+            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
+            required
+            disabled={loading}
+          >
+            <option value="">Select Your Role</option>
+            {roleOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+          </select>
+          
+          <select 
+            name="industry" 
+            value={form.industry} 
+            onChange={handleChange} 
+            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
+            required
+            disabled={loading}
+          >
+            <option value="">Select Your Industry</option>
+            {industryOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+          </select>
+          
+          <select 
+            name="domain" 
+            value={form.domain} 
+            onChange={handleChange} 
+            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
+            required
+            disabled={loading}
+          >
+            <option value="">Select Your Domain</option>
+            {domainOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+          </select>
+          
+          {error && <div className="text-red-600 text-sm">{error}</div>}
+          
+          <button 
+            type="submit" 
+            disabled={loading}
+            className="w-full bg-finder-blue-600 text-white py-2 rounded-xl font-medium disabled:opacity-50"
+            style={{ backgroundColor: loading ? '#0E4A9A' : '#115CBA' }}
+          >
+            {loading ? 'Creating Account...' : 'Create Account'}
+          </button>
+        </form>
         
-        <input 
-          name="email" 
-          type="email" 
-          placeholder="Email" 
-          value={form.email} 
-          onChange={handleChange} 
-          className="w-full px-4 py-2 border border-gray-300 rounded-xl mb-3 focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
-          required 
-          disabled={loading}
-        />
-        
-        <input 
-          name="password" 
-          type="password" 
-          placeholder="Password (min 6 characters)" 
-          value={form.password} 
-          onChange={handleChange} 
-          className="w-full px-4 py-2 border border-gray-300 rounded-xl mb-3 focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
-          required 
-          disabled={loading}
-        />
-        
-        <input 
-          name="confirmPassword" 
-          type="password" 
-          placeholder="Confirm Password" 
-          value={form.confirmPassword} 
-          onChange={handleChange} 
-          className="w-full px-4 py-2 border border-gray-300 rounded-xl mb-3 focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
-          required 
-          disabled={loading}
-        />
-        
-        <select 
-          name="role" 
-          value={form.role} 
-          onChange={handleChange} 
-          className="w-full px-4 py-2 border border-gray-300 rounded-xl mb-3 focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
-          required
-          disabled={loading}
-        >
-          <option value="">Select Role</option>
-          {roleOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
-        </select>
-        
-        <select 
-          name="industry" 
-          value={form.industry} 
-          onChange={handleChange} 
-          className="w-full px-4 py-2 border border-gray-300 rounded-xl mb-3 focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
-          required
-          disabled={loading}
-        >
-          <option value="">Select Industry</option>
-          {industryOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
-        </select>
-        
-        <select 
-          name="domain" 
-          value={form.domain} 
-          onChange={handleChange} 
-          className="w-full px-4 py-2 border border-gray-300 rounded-xl mb-4 focus:outline-none focus:ring-2 focus:ring-finder-blue-500" 
-          required
-          disabled={loading}
-        >
-          <option value="">Select Domain</option>
-          {domainOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
-        </select>
-        
-        {error && <div className="text-red-600 mb-2 text-sm">{error}</div>}
-        
-        <button 
-          type="submit" 
-          className="w-full bg-finder-blue-600 text-white py-2 rounded-xl font-medium mb-3 disabled:opacity-50"
-          disabled={loading}
-        >
-          {loading ? 'Registering...' : 'Register'}
-        </button>
-        
-        <div className="my-3 flex items-center">
+        <div className="my-4 flex items-center">
           <div className="flex-1 border-t border-gray-300"></div>
           <span className="px-3 text-gray-500 text-sm">or</span>
           <div className="flex-1 border-t border-gray-300"></div>
@@ -231,7 +234,7 @@ export default function Register() {
           type="button"
           onClick={handleGoogleLogin}
           disabled={loading}
-          className="w-full bg-white border border-gray-300 text-gray-700 py-2 rounded-xl font-medium mb-3 hover:bg-gray-50 disabled:opacity-50 flex items-center justify-center"
+          className="w-full bg-white border border-gray-300 text-gray-700 py-2 rounded-xl font-medium mb-4 hover:bg-gray-50 disabled:opacity-50 flex items-center justify-center"
         >
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -246,12 +249,13 @@ export default function Register() {
           Already have an account? 
           <span 
             className="text-finder-blue-600 cursor-pointer ml-1" 
+            style={{ color: '#115CBA' }} 
             onClick={() => navigate('/')}
           >
             Login
           </span>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
