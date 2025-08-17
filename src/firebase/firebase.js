@@ -5,13 +5,13 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyBXOHdsOt8QZ2qKJp4FZy8_7PGQ_Y_4fUM",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyBk7mlUbypMT4rsq4gLquiBSCdVyIEGiB8",
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "finder-webapp.firebaseapp.com",
-  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL || "https://finder-webapp-default-rtdb.firebaseio.com",
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL || "https://finder-webapp-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "finder-webapp",
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "finder-webapp.firebasestorage.app",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "794334030709",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:794334030709:web:d6b69e69feab8beabce094"
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "944048700192",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:944048700192:web:e7a686da117c216404b545"
 };
 
 // Initialize Firebase
