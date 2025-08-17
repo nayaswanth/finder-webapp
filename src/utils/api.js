@@ -1,4 +1,4 @@
-import { FirebaseDataService } from '../firebase/dataService.js';
+import { FirestoreDataService } from '../firebase/firestoreService.js';
 import { FirebaseAuthService } from '../firebase/authService.js';
 
 // Check if we should use Firebase (always true for production)
@@ -35,11 +35,11 @@ export class ApiService {
     return FirebaseAuthService.onAuthStateChanged(callback);
   }
 
-  // Data operations - Firebase only
+  // Data operations - Firebase Firestore only
   static async getEmployees() {
     try {
-      const employees = await FirebaseDataService.getAllEmployees();
-      return { success: true, employees };
+      const result = await FirestoreDataService.getAllEmployees();
+      return { success: true, employees: result.employees || [] };
     } catch (error) {
       console.error('Error fetching employees:', error);
       return { success: false, employees: [] };
@@ -48,12 +48,8 @@ export class ApiService {
 
   static async updateEmployee(email, updates) {
     try {
-      const employee = await FirebaseDataService.getEmployeeByEmail(email);
-      if (employee) {
-        await FirebaseDataService.updateEmployee(employee.id, updates);
-        return { success: true, message: 'Employee updated successfully' };
-      }
-      return { success: false, message: 'Employee not found' };
+      const result = await FirestoreDataService.updateEmployeeByEmail(email, updates);
+      return result;
     } catch (error) {
       console.error('Error updating employee:', error);
       return { success: false, message: 'Update failed' };
@@ -62,8 +58,8 @@ export class ApiService {
 
   static async getOpportunities() {
     try {
-      const opportunities = await FirebaseDataService.getAllOpportunities();
-      return { success: true, opportunities };
+      const result = await FirestoreDataService.getAllOpportunities();
+      return { success: true, opportunities: result.opportunities || [] };
     } catch (error) {
       console.error('Error fetching opportunities:', error);
       return { success: false, opportunities: [] };
@@ -72,7 +68,7 @@ export class ApiService {
 
   static async createOpportunity(opportunityData) {
     try {
-      await FirebaseDataService.createOpportunity(opportunityData);
+      const result = await FirestoreDataService.createOpportunity(opportunityData, opportunityData.email);
       return { success: true, message: 'Opportunity posted successfully' };
     } catch (error) {
       console.error('Error creating opportunity:', error);
@@ -82,8 +78,8 @@ export class ApiService {
 
   static async getOpportunity(opportunityId) {
     try {
-      const opportunity = await FirebaseDataService.getOpportunityById(opportunityId);
-      return { success: true, opportunity };
+      const result = await FirestoreDataService.getOpportunityById(opportunityId);
+      return { success: true, opportunity: result.opportunity };
     } catch (error) {
       console.error('Error fetching opportunity:', error);
       return { success: false, message: 'Opportunity not found' };
@@ -92,8 +88,8 @@ export class ApiService {
 
   static async applyToOpportunity(opportunityId, email) {
     try {
-      await FirebaseDataService.applyToOpportunity(opportunityId, email);
-      return { success: true, message: 'Applied successfully' };
+      const result = await FirestoreDataService.applyToOpportunity(opportunityId, email);
+      return result;
     } catch (error) {
       console.error('Error applying to opportunity:', error);
       return { success: false, message: 'Application failed' };
@@ -102,8 +98,8 @@ export class ApiService {
 
   static async markNotInterested(opportunityId, email) {
     try {
-      await FirebaseDataService.markNotInterested(opportunityId, email);
-      return { success: true, message: 'Marked as not interested' };
+      const result = await FirestoreDataService.markNotInterested(opportunityId, email);
+      return result;
     } catch (error) {
       console.error('Error marking not interested:', error);
       return { success: false, message: 'Failed to mark as not interested' };
@@ -112,8 +108,8 @@ export class ApiService {
 
   static async acceptApplicant(opportunityId, applicantEmail) {
     try {
-      await FirebaseDataService.acceptApplicant(opportunityId, applicantEmail);
-      return { success: true, message: 'Applicant accepted successfully' };
+      const result = await FirestoreDataService.acceptApplicant(opportunityId, applicantEmail);
+      return result;
     } catch (error) {
       console.error('Error accepting applicant:', error);
       return { success: false, message: 'Failed to accept applicant' };
@@ -122,8 +118,8 @@ export class ApiService {
 
   static async rejectApplicant(opportunityId, applicantEmail) {
     try {
-      await FirebaseDataService.rejectApplicant(opportunityId, applicantEmail);
-      return { success: true, message: 'Applicant rejected successfully' };
+      const result = await FirestoreDataService.rejectApplicant(opportunityId, applicantEmail);
+      return result;
     } catch (error) {
       console.error('Error rejecting applicant:', error);
       return { success: false, message: 'Failed to reject applicant' };
@@ -132,8 +128,8 @@ export class ApiService {
 
   static async closeOpportunity(opportunityId, email) {
     try {
-      await FirebaseDataService.closeOpportunity(opportunityId);
-      return { success: true, message: 'Opportunity closed successfully' };
+      const result = await FirestoreDataService.closeOpportunity(opportunityId);
+      return result;
     } catch (error) {
       console.error('Error closing opportunity:', error);
       return { success: false, message: 'Failed to close opportunity' };
@@ -142,8 +138,8 @@ export class ApiService {
 
   static async reopenOpportunity(opportunityId, email) {
     try {
-      await FirebaseDataService.reopenOpportunity(opportunityId);
-      return { success: true, message: 'Opportunity reopened successfully' };
+      const result = await FirestoreDataService.reopenOpportunity(opportunityId);
+      return result;
     } catch (error) {
       console.error('Error reopening opportunity:', error);
       return { success: false, message: 'Failed to reopen opportunity' };

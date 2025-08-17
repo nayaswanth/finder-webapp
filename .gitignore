@@ -61,3 +61,6 @@ service-account.json
 # Build artifacts that shouldn't be in repo
 test-firebase.js
 users.json
+migrate-data.js
+migrate-data-fixed.js
+firestore-migration.rules

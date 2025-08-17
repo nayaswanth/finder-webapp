@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ProfileAvatar from './ProfileAvatar';
 import NotificationBell from './NotificationBell';
 import finderLogo from './assets/Logo FI.png';
-import { buildApiUrl } from './utils/api';
+import { ApiService } from './utils/api';
 import HeaderBar from './HeaderBar';
 
 export default function PostOpportunity() {
@@ -145,16 +145,11 @@ export default function PostOpportunity() {
     const formWithEmail = { ...form, email: localStorage.getItem('finder_email') || '' };
     
     try {
-      const res = await fetch(buildApiUrl('opportunities'), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formWithEmail)
-      });
-      const data = await res.json();
-      if (data.success) {
+      const result = await ApiService.createOpportunity(formWithEmail);
+      if (result.success) {
         navigate('/dashboard');
       } else {
-        setError(data.message || 'Failed to post opportunity');
+        setError(result.message || 'Failed to post opportunity');
       }
     } catch (err) {
       setError('Network error. Please try again.');
