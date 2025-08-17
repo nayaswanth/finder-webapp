@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext.jsx';
 import finderLogo from './assets/Logo FI.png';
@@ -18,7 +18,8 @@ export default function Register() {
   const navigate = useNavigate();
   const { register, loginWithGoogle } = useAuth();
 
-  const domainOptions = [
+  // Memoize options to prevent unnecessary re-renders
+  const domainOptions = useMemo(() => [
     "Cross-Domain",
     "Customer & Commercial Strategy",
     "Agency Strategy",
@@ -27,27 +28,29 @@ export default function Register() {
     "Pricing & Sales Strategy",
     "Service Strategy",
     "Innovation & Product Strategy"
-  ];
-  const roleOptions = [
+  ], []);
+  
+  const roleOptions = useMemo(() => [
     "Analyst",
     "Consultant", 
     "Senior Consultant",
     "Manager",
     "Senior Manager"
-  ];
-  const industryOptions = [
+  ], []);
+  
+  const industryOptions = useMemo(() => [
     "Life Sciences & Health Care",
     "Consumer",
     "Energy, Resources & Industrial",
     "Technology, Media & Telecom",
     "Financial Services & Insurance",
     "Cross-Industry"
-  ];
+  ], []);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
     if (error) setError('');
-  };
+  }, [form, error]);
 
   const validateForm = () => {
     if (!form.name.trim()) return 'Name is required';
@@ -65,12 +68,8 @@ export default function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     
-    console.log('🚀 Registration attempt started');
-    console.log('Form data:', form);
-    
     const validationError = validateForm();
     if (validationError) {
-      console.log('❌ Validation error:', validationError);
       setError(validationError);
       return;
     }
@@ -79,7 +78,6 @@ export default function Register() {
     setLoading(true);
 
     try {
-      console.log('📝 Calling register function...');
       const result = await register(form.email, form.password, {
         name: form.name,
         role: form.role,
@@ -87,18 +85,12 @@ export default function Register() {
         domain: form.domain
       });
       
-      console.log('📄 Registration result:', result);
-      
       if (result.success) {
-        console.log('✅ Registration successful!');
-        alert('Registration successful! You are now logged in.');
-        navigate('/');
+        navigate('/dashboard');
       } else {
-        console.log('❌ Registration failed:', result.message);
         setError(result.message || 'Registration failed');
       }
     } catch (error) {
-      console.error('💥 Registration exception:', error);
       setError('Registration failed. Please try again.');
     } finally {
       setLoading(false);
@@ -217,10 +209,20 @@ export default function Register() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full bg-finder-blue-600 text-white py-2 rounded-xl font-medium disabled:opacity-50"
+            className="w-full bg-finder-blue-600 text-white py-2 rounded-xl font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             style={{ backgroundColor: loading ? '#0E4A9A' : '#115CBA' }}
           >
-            {loading ? 'Creating Account...' : 'Create Account'}
+            {loading ? (
+              <div className="flex items-center justify-center">
+                <svg className="animate-spin h-4 w-4 mr-2" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                </svg>
+                Creating Account...
+              </div>
+            ) : (
+              'Create Account'
+            )}
           </button>
         </form>
         

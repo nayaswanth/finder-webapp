@@ -14,39 +14,32 @@ import FirestoreDataService from './firestoreService.js';
 export class FirebaseAuthService {
   static googleProvider = new GoogleAuthProvider();
 
-  // Email/Password Authentication
+  // Email/Password Authentication - Optimized
   static async signUpWithEmail(email, password, userData) {
-    console.log('🔥 FirebaseAuthService signUpWithEmail called with:', { email, userData });
     try {
-      console.log('🔥 Creating user with email and password...');
+      // Single Firebase Auth call
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      console.log('🔥 User created successfully:', user.uid);
       
-      // Update user profile
-      console.log('🔥 Updating user profile...');
-      await updateProfile(user, {
-        displayName: userData.name
-      });
-      console.log('🔥 Profile updated successfully');
-
-      // Store additional user data in Firestore
-      console.log('🔥 Creating employee record in Firestore...');
-      const employeeData = {
-        name: userData.name,
-        email: user.email,
-        industry: userData.industry,
-        domain: userData.domain,
-        role: userData.role,
-        uid: user.uid,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      };
-
-      const createResult = await FirestoreDataService.createEmployee(employeeData);
-      console.log('🔥 Employee creation result:', createResult);
+      // Parallel operations for better performance
+      const [profileUpdate, employeeCreation] = await Promise.all([
+        // Update user profile
+        updateProfile(user, {
+          displayName: userData.name
+        }),
+        // Store employee data in Firestore
+        FirestoreDataService.createEmployee({
+          name: userData.name,
+          email: user.email,
+          industry: userData.industry,
+          domain: userData.domain,
+          role: userData.role,
+          uid: user.uid,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        })
+      ]);
       
-      console.log('🔥 Registration completed successfully');
       return { success: true, user, message: 'Account created successfully' };
     } catch (error) {
       console.error('🔥 Sign up error:', error);

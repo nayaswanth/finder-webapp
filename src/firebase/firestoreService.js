@@ -87,12 +87,14 @@ class FirestoreDataService {
     }
   }
 
+  // Optimized employee creation with better error handling
   async createEmployee(employeeData) {
     try {
       const employeesRef = collection(this.db, 'employees');
       const docRef = await addDoc(employeesRef, {
         ...employeeData,
-        createdAt: serverTimestamp()
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp()
       });
       return { success: true, id: docRef.id };
     } catch (error) {
