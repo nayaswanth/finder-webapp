@@ -9,7 +9,7 @@ import {
   sendPasswordResetEmail
 } from 'firebase/auth';
 import { auth } from './firebase.js';
-import FirestoreDataService from './firestoreService.js';
+import firestoreService from './firestoreService.js';
 
 export class FirebaseAuthService {
   static googleProvider = new GoogleAuthProvider();
@@ -28,7 +28,7 @@ export class FirebaseAuthService {
           displayName: userData.name
         }),
         // Store employee data in Firestore
-        FirestoreDataService.createEmployee({
+        firestoreService.createEmployee({
           name: userData.name,
           email: user.email,
           industry: userData.industry,
@@ -53,7 +53,7 @@ export class FirebaseAuthService {
       const user = userCredential.user;
       
       // Get user data from Firestore
-      const userData = await FirestoreDataService.getEmployeeByEmail(user.email);
+      const userData = await firestoreService.getEmployeeByEmail(user.email);
       
       return { success: true, user, userData: userData.data, message: 'Login successful' };
     } catch (error) {
@@ -69,7 +69,7 @@ export class FirebaseAuthService {
       const user = result.user;
       
       // Check if user exists in our database
-      const userResult = await FirestoreDataService.getEmployeeByEmail(user.email);
+      const userResult = await firestoreService.getEmployeeByEmail(user.email);
       let userData = userResult.success ? userResult.data : null;
       
       // If user doesn't exist, create a new profile
@@ -85,7 +85,7 @@ export class FirebaseAuthService {
           updatedAt: new Date().toISOString()
         };
         
-        await FirestoreDataService.createEmployee(newUserData);
+        await firestoreService.createEmployee(newUserData);
         userData = newUserData;
       }
       
